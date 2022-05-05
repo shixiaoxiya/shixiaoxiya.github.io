@@ -807,7 +807,7 @@ body {
 
 .left-col {
 	background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-    url("https://nbviewer.org/github/shixiaoxiya/shixiaoxiya.github.io/blob/master/photos/aa.jpg") no-repeat 0% 20%/ cover;
+    url("https://nbviewer.org/github/shixiaoxiya/shixiaoxiya.github.io/blob/master/photos/aa2.jpg") no-repeat 0% 20%/ cover;
 	width: 300px;
 	position: fixed;
 	opacity: 1;
@@ -838,7 +838,7 @@ body {
 }
 
 .left-col #header a {
-	color: #696969
+	color: #000000
 }
 
 .left-col #header a:hover {
@@ -847,7 +847,7 @@ body {
 
 .left-col #header .header-subtitle {
 	text-align: center;
-	color: #999;
+	color: #000000;
 	font-size: 14px;
 	line-height: 25px;
 	overflow: hidden;
