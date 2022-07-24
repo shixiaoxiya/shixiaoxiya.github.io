@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022/4 | 小西的个人博客</title>
+  <title>03静态链表_StaticLinkList | 小西的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="小西的个人博客">
-<meta property="og:url" content="http://example.com/archives/2022/04/index.html">
+  <meta name="description" content="代码笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03静态链表_StaticLinkList">
+<meta property="og:url" content="http://example.com/2022/07/24/xianshi/03%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8_StaticLinkList/index.html">
 <meta property="og:site_name" content="小西的个人博客">
+<meta property="og:description" content="代码笔记">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-24T14:10:23.413Z">
+<meta property="article:modified_time" content="2022-07-24T14:13:20.548Z">
 <meta property="article:author" content="小西">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="c语言">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="小西的个人博客" type="application/atom+xml">
@@ -208,171 +215,261 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-xianshi/03静态链表_StaticLinkList" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      03静态链表_StaticLinkList
+    </h1>
+  
+
+        
+        
+
+<a href="/2022/07/24/xianshi/03%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8_StaticLinkList/" class="archive-article-date">
+  	<time datetime="2022-07-24T14:10:23.413Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-24</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>代码笔记</p>
+<span id="more"></span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//静态链表_StaticLinkList</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;ctype.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;io.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OK 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> TRUE 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> FALSE 0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXSIZE 1000<span class="comment">//存储空间初始分配量</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> Status;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> ElemType;<span class="comment">/* ElemType类型根据实际情况而定，这里假设为char */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//线性表静态链表存储结构</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	ElemType data;</span><br><span class="line">	<span class="type">int</span> cur;<span class="comment">//游标（Cursor),为0时表示无指向</span></span><br><span class="line">&#125;Component,StaticLinkList[MAXSIZE];</span><br><span class="line"></span><br><span class="line"><span class="comment">//将一堆数组space中各分量连成一个备用链表，space[0].cur为头指针，&quot;0&quot;表示空指针</span></span><br><span class="line">Status <span class="title function_">InitList</span><span class="params">(StaticLinkList space)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;MAXSIZE<span class="number">-1</span>;i++)</span><br><span class="line">		space[i].cur=i+<span class="number">1</span>;</span><br><span class="line">	space[MAXSIZE<span class="number">-1</span>].cur=<span class="number">0</span>;<span class="comment">//目前静态链表为空，最后一个元素cur为0</span></span><br><span class="line">	<span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始条件：静态链表L已存在</span></span><br><span class="line"><span class="comment">//操作结果：返回L中数据元素的个数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">ListLength</span><span class="params">(StaticLinkList L)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> j=<span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> i=L[MAXSIZE<span class="number">-1</span>].cur;</span><br><span class="line">	<span class="keyword">while</span>(i)</span><br><span class="line">	&#123;</span><br><span class="line">		i=L[i].cur;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> j;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//若被用空间链表非空，则返回分配的结点下标，否则返回0</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Malloc_SSL</span><span class="params">(StaticLinkList space)</span> </span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> i=space[<span class="number">0</span>].cur;<span class="comment">//当前数组第一个元素的cur存的值，就是要返回第一个备用空闲的下标</span></span><br><span class="line">	<span class="keyword">if</span>(space[<span class="number">0</span>].cur)</span><br><span class="line">		space[<span class="number">0</span>].cur=space[i].cur;<span class="comment">//由于要拿出第一个分量来使用了，所以我们就得把他的下一个分量来做备用</span></span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//在L中第i个元素之前插入新的数据元素e</span></span><br><span class="line">Status <span class="title function_">ListInsert</span><span class="params">(StaticLinkList L,<span class="type">int</span> i,ElemType e)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> j,k,l;</span><br><span class="line">	k=MAXSIZE<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">if</span>(i&lt;<span class="number">1</span>||i&gt;ListLength(L)+<span class="number">1</span>)</span><br><span class="line">		<span class="keyword">return</span> ERROR;</span><br><span class="line">	j=Malloc_SSL(L);<span class="comment">//获得空闲分量的下标</span></span><br><span class="line">	<span class="keyword">if</span>(j)</span><br><span class="line">	&#123;</span><br><span class="line">		L[j].data=e;<span class="comment">//j将数据赋给此分量的data</span></span><br><span class="line">		<span class="keyword">for</span>(l=<span class="number">1</span>;l&lt;=i<span class="number">-1</span>;l++)<span class="comment">//找到第i个元素之前的位置</span></span><br><span class="line">			k=L[k].cur;</span><br><span class="line">		L[j].cur=L[k].cur;<span class="comment">//把第i个元素之前的cur赋值给新元素的cur</span></span><br><span class="line">		L[k].cur=j;<span class="comment">//把新元素的下标赋值给第i个元素之前元素的sur</span></span><br><span class="line">		<span class="keyword">return</span> OK;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Status <span class="title function_">visit</span><span class="params">(ElemType c)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c &quot;</span>,c);</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">Status <span class="title function_">ListTraverse</span><span class="params">(StaticLinkList L)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> j=<span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> i=L[MAXSIZE<span class="number">-1</span>].cur;</span><br><span class="line">	<span class="keyword">while</span>(i)</span><br><span class="line">	&#123;</span><br><span class="line">		visit(L[i].data);</span><br><span class="line">	</span><br><span class="line">		i=L[i].cur;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> j;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将下标为k的空闲结点会受到备用链表</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Free_SSL</span><span class="params">(StaticLinkList space,<span class="type">int</span> k)</span></span><br><span class="line">&#123;</span><br><span class="line">	space[k].cur=space[<span class="number">0</span>].cur;<span class="comment">//把第一个元素的cur值赋给要删除的分量cur</span></span><br><span class="line">	space[<span class="number">0</span>].cur=k;<span class="comment">//把要删除的分量下标赋值给第一个元素</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除在L中第i个数据元素</span></span><br><span class="line">Status <span class="title function_">ListDelete</span><span class="params">(StaticLinkList L,<span class="type">int</span> i)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> j,k;</span><br><span class="line">	<span class="keyword">if</span>(i&lt;<span class="number">1</span>||i&gt;ListLength(L))</span><br><span class="line">		<span class="keyword">return</span> ERROR;</span><br><span class="line">	k=MAXSIZE<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=i<span class="number">-1</span>;j++)</span><br><span class="line">		k=L[k].cur;</span><br><span class="line">	j=L[k].cur;</span><br><span class="line">	L[k].cur=L[j].cur;</span><br><span class="line">	Free_SSL(L,j);</span><br><span class="line">	<span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    StaticLinkList L;</span><br><span class="line">    Status i;</span><br><span class="line">    i=InitList(L);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;初始化L后：L.length=%d\n&quot;</span>,ListLength(L));</span><br><span class="line"> </span><br><span class="line">    i=ListInsert(L,<span class="number">1</span>,<span class="string">&#x27;F&#x27;</span>);</span><br><span class="line">    i=ListInsert(L,<span class="number">1</span>,<span class="string">&#x27;E&#x27;</span>);</span><br><span class="line">    i=ListInsert(L,<span class="number">1</span>,<span class="string">&#x27;D&#x27;</span>);</span><br><span class="line">    i=ListInsert(L,<span class="number">1</span>,<span class="string">&#x27;B&#x27;</span>);</span><br><span class="line">    i=ListInsert(L,<span class="number">1</span>,<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n在L的表头依次插入FEDBA后：\nL.data=&quot;</span>);</span><br><span class="line">    ListTraverse(L); </span><br><span class="line"> </span><br><span class="line">    i=ListInsert(L,<span class="number">3</span>,<span class="string">&#x27;C&#x27;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n在L的“B”与“D”之间插入“C”后：\nL.data=&quot;</span>);</span><br><span class="line">    ListTraverse(L); </span><br><span class="line"> </span><br><span class="line">    i=ListDelete(L,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n在L的删除“A”后：\nL.data=&quot;</span>);</span><br><span class="line">    ListTraverse(L); </span><br><span class="line"> </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+      <!-- 增加版权声明 -->
+      <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+      
+
+
+<div class="declare">
+  <strong>本文作者：</strong>
+  
+    小西
+  
+  <br>
+  <strong>本文链接：</strong>
+  <a rel="license" href="http://example.com/2022/07/24/xianshi/03%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8_StaticLinkList/">http://example.com/2022/07/24/xianshi/03%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8_StaticLinkList/</a>
+  <br>
+  <strong>版权声明：</strong>
+  本作品采用
+  <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+  进行许可。转载请注明出处！
+  
+    <br>
+    <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+  
+</div>
+
+
+<!-- 增加版权声明结束 -->
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2022/04/30/xianshi/" class="archive-article-date">
-  	<time datetime="2022-04-30T11:18:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/30/xianshi/">显示文章摘要</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo博客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2022/04/30/%E8%A7%A3%E5%86%B3%E6%96%87%E7%AB%A0%E6%A8%A1%E5%9D%97%E7%BC%BA%E5%A4%B1%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2022-04-30T10:12:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/30/%E8%A7%A3%E5%86%B3%E6%96%87%E7%AB%A0%E6%A8%A1%E5%9D%97%E7%BC%BA%E5%A4%B1%E9%97%AE%E9%A2%98/">解决文章模块缺失问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo博客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2022/04/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2022-04-30T05:21:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2022/04/30/hello-world/" class="archive-article-date">
-  	<time datetime="2022-04-30T05:19:56.302Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c语言</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/07/24/xianshi/03%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8_StaticLinkList/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2022/07/24/02%E7%BA%BF%E6%80%A7%E8%A1%A8%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8_LinkList/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">02线性表链式存储_LinkList</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "XmuxKGcJmhHaNgJXWRLrtapl-gzGzoHsz",
+            app_key: "BgDGSoAFg91tlOO6q0ICMv9f",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+
+</section>
+
+
 
 
           </div>
@@ -418,8 +515,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
