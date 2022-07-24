@@ -341,12 +341,29 @@
     <article id="post-函数模板基本语法  stl" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/24/%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%20%20stl/">函数模板基本语法代码笔记</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2022/07/24/%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%20%20stl/" class="archive-article-date">
+  	<time datetime="2022-07-24T12:41:43.540Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-24</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <span id="more"></span>
-<p>这是我在b站学的STL的第一课<br>代码笔记</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//模板技术 类型参数化 编写代码可以忽略类型</span></span><br><span class="line"><span class="comment">//为了让编译器区分是普通函数 模板函数</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;<span class="comment">//或者 template&lt;typename T&gt;//告诉编译器 我下面写的模板函数，看到奇怪的东西，不要随便报错</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MySwap</span><span class="params">(T &amp;a,T &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T temp=a;</span><br><span class="line">	a=b;</span><br><span class="line">	b=temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="type">int</span> a=<span class="number">10</span>;</span><br><span class="line">		<span class="type">int</span> b=<span class="number">20</span>;</span><br><span class="line">		<span class="comment">//1 自动类型推导</span></span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;a:&quot;</span>&lt;&lt;a&lt;&lt;<span class="string">&quot; b:&quot;</span>&lt;&lt;b&lt;&lt;endl;</span><br><span class="line">		<span class="built_in">MySwap</span>(a,b);<span class="comment">//编译器根据你传的值 进行类型自动推导</span></span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;a:&quot;</span>&lt;&lt;<span class="string">&quot; b:&quot;</span>&lt;&lt;b&lt;&lt;endl;</span><br><span class="line">		<span class="type">double</span> c=<span class="number">1.99</span>;</span><br><span class="line">		<span class="type">double</span> d=<span class="number">8.66</span>;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;c:&quot;</span>&lt;&lt;c&lt;&lt;<span class="string">&quot; d:&quot;</span>&lt;&lt;d&lt;&lt;endl;</span><br><span class="line">		<span class="built_in">MySwap</span>(c,d);</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;c:&quot;</span>&lt;&lt;c&lt;&lt;<span class="string">&quot; d:&quot;</span>&lt;&lt;d&lt;&lt;endl;</span><br><span class="line">		<span class="comment">//2 显示的指定类型</span></span><br><span class="line">		<span class="built_in">MySwap</span>&lt;<span class="type">int</span>&gt;(a,b);</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;a:&quot;</span>&lt;&lt;a&lt;&lt;<span class="string">&quot; b:&quot;</span>&lt;&lt;b&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <p>函数模板基本语法代码笔记</p>
+        
+          <a class="article-more-a" href="/2022/07/24/%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%20%20stl/#more">more >></a>
+        
       
       <!-- 增加版权声明 -->
       <!- 百度自动推送方式提交 -->
