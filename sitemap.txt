@@ -8,4 +8,6 @@ http://example.com/2022/04/30/hello-world/
 http://example.com/2022/04/30/xianshi/
 http://example.com/
 http://example.com/tags/%E9%9A%8F%E7%AC%94/
-http://example.com/tags/STL-c-%E7%AC%94%E8%AE%B0/
+http://example.com/tags/STL/
+http://example.com/tags/c/
+http://example.com/tags/%E7%AC%94%E8%AE%B0/
